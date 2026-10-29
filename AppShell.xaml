@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ xmlns:store="clr-namespace:OfflineShoppingApp.Shopping.Views"
+ x:Class="OfflineShoppingApp.AppShell" Title="Offline Store" FlyoutBehavior="Disabled" Shell.BackgroundColor="#0B0B10" Shell.ForegroundColor="White" Shell.TitleColor="White" Shell.UnselectedColor="#C4B5FD">
+ <ShellContent Title="Offline Store" Route="customers" ContentTemplate="{DataTemplate store:CustomerPage}" />
+</Shell>

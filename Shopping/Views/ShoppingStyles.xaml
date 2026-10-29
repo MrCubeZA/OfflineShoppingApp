@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="StoreBackground">#0B0B10</Color>
+    <Color x:Key="StoreNavy">#F5F3FF</Color>
+    <Color x:Key="StoreTeal">#B79AFF</Color>
+    <Color x:Key="StoreMuted">#B5B0C3</Color>
+    <Style x:Key="StorePage" TargetType="ContentPage"><Setter Property="BackgroundColor" Value="{StaticResource StoreBackground}" /></Style>
+    <Style x:Key="StoreHeading" TargetType="Label"><Setter Property="TextColor" Value="#FAF8FF" /><Setter Property="FontSize" Value="27" /><Setter Property="FontAttributes" Value="Bold" /></Style>
+    <Style x:Key="StoreTitle" TargetType="Label"><Setter Property="TextColor" Value="#F5F3FF" /><Setter Property="FontSize" Value="17" /><Setter Property="FontAttributes" Value="Bold" /></Style>
+    <Style x:Key="StoreSubtitle" TargetType="Label"><Setter Property="TextColor" Value="#B5B0C3" /><Setter Property="FontSize" Value="13" /><Setter Property="LineHeight" Value="1.15" /></Style>
+    <Style x:Key="StoreCard" TargetType="Border"><Setter Property="BackgroundColor" Value="#17151F" /><Setter Property="Stroke" Value="#2B2539" /><Setter Property="StrokeThickness" Value="1" /><Setter Property="StrokeShape" Value="RoundRectangle 18" /><Setter Property="Padding" Value="14" /></Style>
+    <Style x:Key="StorePrimaryButton" TargetType="Button"><Setter Property="BackgroundColor" Value="#8B5CF6" /><Setter Property="TextColor" Value="White" /><Setter Property="FontSize" Value="14" /><Setter Property="FontAttributes" Value="Bold" /><Setter Property="CornerRadius" Value="12" /><Setter Property="MinimumHeightRequest" Value="48" /><Setter Property="Padding" Value="14,10" /></Style>
+    <Style x:Key="StoreSecondaryButton" TargetType="Button" BasedOn="{StaticResource StorePrimaryButton}"><Setter Property="BackgroundColor" Value="#272130" /><Setter Property="TextColor" Value="#E5D9FF" /></Style>
+    <Style x:Key="StoreFeedback" TargetType="Label"><Setter Property="TextColor" Value="#D7C7FF" /><Setter Property="FontSize" Value="13" /></Style>
+</ResourceDictionary>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="OfflineShoppingApp.Shopping.Views.CustomerPage" Title="Offline Store" Style="{StaticResource StorePage}">
+    <CollectionView Margin="20,0" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectCustomerCommand}">
+        <CollectionView.Header><VerticalStackLayout Spacing="18" Padding="0,18,0,24">
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="24,30">
+                <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#6E37BA" Offset="0" /><GradientStop Color="#251334" Offset="1" /></LinearGradientBrush></Border.Background>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="OFFLINE STORE" FontSize="11" CharacterSpacing="2.5" TextColor="#E6D7FF" FontAttributes="Bold" />
+                    <Label Text="Good finds.&#10;Your kind of store." FontSize="34" FontAttributes="Bold" TextColor="White" />
+                    <Label Text="A few everyday favourites, ready when you are." TextColor="#E0D1F2" FontSize="14" />
+                </VerticalStackLayout>
+            </Border>
+            <VerticalStackLayout Spacing="6"><Label Text="Who's shopping?" Style="{StaticResource StoreHeading}" /><Label Text="Choose a customer to open their saved cart." Style="{StaticResource StoreSubtitle}" /></VerticalStackLayout>
+        </VerticalStackLayout></CollectionView.Header>
+        <CollectionView.ItemsLayout><LinearItemsLayout Orientation="Vertical" ItemSpacing="12" /></CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate><DataTemplate><Border Style="{StaticResource StoreCard}" Padding="18">
+            <Grid ColumnDefinitions="44,*,Auto" ColumnSpacing="14">
+                <Border BackgroundColor="#322044" StrokeThickness="0" StrokeShape="RoundRectangle 14" WidthRequest="44" HeightRequest="44"><Label Text="●" TextColor="#C4A7FF" FontSize="24" VerticalOptions="Center" HorizontalOptions="Center" /></Border>
+                <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center"><Label Text="{Binding Name}" Style="{StaticResource StoreTitle}" /><Label Text="Browse the store" Style="{StaticResource StoreSubtitle}" /></VerticalStackLayout>
+                <Label Grid.Column="2" Text="›" FontSize="28" TextColor="#C4A7FF" VerticalOptions="Center" />
+            </Grid>
+        </Border></DataTemplate></CollectionView.ItemTemplate>
+        <CollectionView.EmptyView><Label Text="No customers available." Style="{StaticResource StoreSubtitle}" Margin="20,30" /></CollectionView.EmptyView>
+        <CollectionView.Footer><BoxView HeightRequest="20" Color="Transparent" /></CollectionView.Footer>
+    </CollectionView>
+</ContentPage>

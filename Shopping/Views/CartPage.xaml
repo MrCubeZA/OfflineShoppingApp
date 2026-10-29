@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="OfflineShoppingApp.Shopping.Views.CartPage" x:Name="CartRoot" Title="Your cart" Style="{StaticResource StorePage}">
+    <Grid Padding="16,12,16,16" RowDefinitions="Auto,*,Auto" RowSpacing="16">
+        <VerticalStackLayout Spacing="5"><Label Text="Your good finds." Style="{StaticResource StoreHeading}" /><Label Text="One last look before they're yours." Style="{StaticResource StoreSubtitle}" /></VerticalStackLayout>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Lines}" SelectionMode="None">
+            <CollectionView.ItemsLayout><LinearItemsLayout Orientation="Vertical" ItemSpacing="12" /></CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate><DataTemplate><Border Style="{StaticResource StoreCard}" Padding="12">
+                <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="10">
+                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="7" HeightRequest="85"><Image Source="{Binding ImageSource}" Aspect="AspectFit" /></Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <Label Text="{Binding Name}" Style="{StaticResource StoreTitle}" FontSize="15" MaxLines="2" />
+                        <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" Style="{StaticResource StoreSubtitle}" FontSize="12" />
+                        <Label Text="{Binding UnitPrice, StringFormat='{0:C2} each'}" Style="{StaticResource StoreSubtitle}" FontSize="12" />
+                    </VerticalStackLayout>
+                    <Button Grid.Row="1" Text="Remove" Command="{Binding BindingContext.RemoveCommand, Source={x:Reference CartRoot}}" CommandParameter="{Binding .}" Style="{StaticResource StoreSecondaryButton}" FontSize="12" Padding="10,8" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding LineTotal, StringFormat='{0:C2}'}" TextColor="White" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" />
+                </Grid>
+            </Border></DataTemplate></CollectionView.ItemTemplate>
+            <CollectionView.EmptyView><VerticalStackLayout Padding="20,50" Spacing="8"><Label Text="Nothing here just yet." Style="{StaticResource StoreTitle}" HorizontalTextAlignment="Center" /><Label Text="Explore the catalogue and find your favourites." Style="{StaticResource StoreSubtitle}" HorizontalTextAlignment="Center" /></VerticalStackLayout></CollectionView.EmptyView>
+        </CollectionView>
+        <Border Grid.Row="2" Stroke="#493263" StrokeShape="RoundRectangle 18" Padding="16">
+            <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#2E1B42" Offset="0" /><GradientStop Color="#15111D" Offset="1" /></LinearGradientBrush></Border.Background>
+            <VerticalStackLayout Spacing="12">
+                <Grid ColumnDefinitions="*,Auto"><Label Text="Total" Style="{StaticResource StoreTitle}" VerticalOptions="Center" /><Label Grid.Column="1" Text="{Binding Total, StringFormat='{0:C2}'}" TextColor="White" FontSize="27" FontAttributes="Bold" /></Grid>
+                <Button Text="Checkout" Command="{Binding CheckoutCommand}" Style="{StaticResource StorePrimaryButton}" />
+                <Label Text="{Binding Feedback}" Style="{StaticResource StoreFeedback}" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ x:Class="OfflineShoppingApp.Shopping.Views.CataloguePage" Title="Shop" Style="{StaticResource StorePage}">
+    <CollectionView Margin="16,0" ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" SelectionMode="Single" SelectionChangedCommand="{Binding OpenProductCommand}">
+        <CollectionView.ItemsLayout><GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" /></CollectionView.ItemsLayout>
+        <CollectionView.Header>
+            <VerticalStackLayout Spacing="18" Padding="0,12,0,18">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                    <VerticalStackLayout Spacing="3" VerticalOptions="Center">
+                        <Label Text="SHOPPING FOR" FontSize="10" CharacterSpacing="1.7" TextColor="#B5B0C3" />
+                        <Label Text="{Binding CustomerName}" Style="{StaticResource StoreTitle}" LineBreakMode="TailTruncation" />
+                    </VerticalStackLayout>
+                    <Button Grid.Column="1" Text="{Binding CartCount, StringFormat='Cart ({0})'}" Command="{Binding OpenCartCommand}" Style="{StaticResource StoreSecondaryButton}" />
+                </Grid>
+                <Border BackgroundColor="#191620" Stroke="#342A43" StrokeShape="RoundRectangle 13" Padding="14,2">
+                    <Entry Placeholder="Search products" Text="{Binding SearchText, Mode=TwoWay}" ClearButtonVisibility="WhileEditing" FontSize="14" TextColor="White" PlaceholderColor="#A89FB8" BackgroundColor="Transparent" SemanticProperties.Description="Search product names" />
+                </Border>
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="18" MinimumHeightRequest="215">
+                    <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#452070" Offset="0" /><GradientStop Color="#21142F" Offset="0.65" /><GradientStop Color="#15111D" Offset="1" /></LinearGradientBrush></Border.Background>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+                            <Label Text="SALE PICKS" FontSize="11" CharacterSpacing="2" TextColor="#DCC9FF" FontAttributes="Bold" />
+                            <Label Text="{Binding FeaturedProduct.Name}" TextColor="White" FontSize="23" FontAttributes="Bold" MaxLines="3" />
+                            <Label Text="{Binding FeaturedProduct.Price, StringFormat='{0:C2}'}" TextColor="#E6D7FF" FontSize="20" FontAttributes="Bold" />
+                            <Button Text="Shop now" Command="{Binding OpenFeaturedCommand}" Style="{StaticResource StorePrimaryButton}" HorizontalOptions="Start" />
+                        </VerticalStackLayout>
+                        <Border Grid.Column="1" BackgroundColor="#F6F3FA" StrokeThickness="0" StrokeShape="RoundRectangle 17" Padding="9" VerticalOptions="Center" HeightRequest="165">
+                            <Image Source="{Binding FeaturedProduct.ImageSource}" Aspect="AspectFit" SemanticProperties.Description="Featured product" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                    <VerticalStackLayout Spacing="3"><Label Text="Made for your day" FontSize="23" FontAttributes="Bold" TextColor="White" /><Label Text="Tech, home and everyday favourites" Style="{StaticResource StoreSubtitle}" /></VerticalStackLayout>
+                    <Button Grid.Column="1" Text="Switch" Command="{Binding ChangeCustomerCommand}" Style="{StaticResource StoreSecondaryButton}" FontSize="12" Padding="10,8" />
+                </Grid>
+            </VerticalStackLayout>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate><DataTemplate>
+            <Border Style="{StaticResource StoreCard}" Padding="10">
+                <VerticalStackLayout Spacing="8">
+                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="8" HeightRequest="135"><Image Source="{Binding ImageSource}" Aspect="AspectFit" /></Border>
+                    <Label Text="{Binding CategoryName}" FontSize="10" TextColor="#B79AFF" MaxLines="1" LineBreakMode="TailTruncation" />
+                    <Label Text="{Binding Name}" TextColor="#F5F3FF" FontSize="14" FontAttributes="Bold" MaxLines="2" HeightRequest="39" LineBreakMode="TailTruncation" />
+                    <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="18" FontAttributes="Bold" TextColor="White" />
+                    <Label Text="{Binding Stock, StringFormat='{0} in stock'}" FontSize="11" TextColor="#B5B0C3" />
+                </VerticalStackLayout>
+            </Border>
+        </DataTemplate></CollectionView.ItemTemplate>
+        <CollectionView.EmptyView><Label Text="No matching products. Try another search." Style="{StaticResource StoreSubtitle}" Margin="16,28" HorizontalTextAlignment="Center" /></CollectionView.EmptyView>
+        <CollectionView.Footer><BoxView HeightRequest="20" Color="Transparent" /></CollectionView.Footer>
+    </CollectionView>
+</ContentPage>
