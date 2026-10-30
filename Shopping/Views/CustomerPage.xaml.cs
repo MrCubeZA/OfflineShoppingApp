@@ -16,14 +16,6 @@ public partial class CustomerPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        try
-        {
-            await viewModel.OnAppearingAsync();
-        }
-        catch (Exception exception)
-        {
-            System.Diagnostics.Debug.WriteLine(exception);
-            await DisplayAlertAsync("Unable to load", "The local store could not load this page. Please go back and try again.", "OK");
-        }
+        await viewModel.OnAppearingAsync();
     }
 }

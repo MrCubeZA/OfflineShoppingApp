@@ -1,4 +1,4 @@
-using OfflineShoppingApp.Shopping;
+using OfflineShoppingApp.Shopping.Services;
 using OfflineShoppingApp.Shopping.Views;
 using OfflineShoppingApp.Shopping.ViewModels;
 using System.Globalization;

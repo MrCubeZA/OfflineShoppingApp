@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="OfflineShoppingApp.Shopping.Views.ProductPage" Title="Product details" Style="{StaticResource StorePage}">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:OfflineShoppingApp.Shopping.ViewModels" x:DataType="vm:ProductViewModel" x:Class="OfflineShoppingApp.Shopping.Views.ProductPage" Title="Product details" Style="{StaticResource StorePage}">
     <ScrollView><VerticalStackLayout Padding="18,12,18,24" Spacing="20">
         <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="24" HeightRequest="270"><Image Source="{Binding Product.ImageFile}" Aspect="AspectFit" /></Border>
         <VerticalStackLayout Spacing="9">
@@ -12,10 +12,10 @@
         <Border Style="{StaticResource StoreCard}"><VerticalStackLayout Spacing="12">
             <Label Text="Make it yours" Style="{StaticResource StoreTitle}" />
             <Grid ColumnDefinitions="85,*" ColumnSpacing="12">
-                <Border BackgroundColor="#0F0D15" Stroke="#49385F" StrokeShape="RoundRectangle 12" Padding="12,2"><Entry Text="{Binding Quantity, Mode=TwoWay}" Keyboard="Numeric" TextColor="White" PlaceholderColor="#B5B0C3" FontSize="18" AutomationId="QuantityEntry" SemanticProperties.Description="Quantity to add to cart" HorizontalTextAlignment="Center" /></Border>
+                <Border BackgroundColor="#0F0D15" Stroke="#49385F" StrokeShape="RoundRectangle 12" Padding="12,2"><Entry Text="{Binding Quantity}" Keyboard="Numeric" TextColor="White" PlaceholderColor="#B5B0C3" FontSize="18" HorizontalTextAlignment="Center" /></Border>
                 <Button Grid.Column="1" Text="Add to cart" Command="{Binding AddCommand}" Style="{StaticResource StorePrimaryButton}" />
             </Grid>
-            <Label Text="Enter a whole number. Your existing cart quantity counts towards stock." Style="{StaticResource StoreSubtitle}" FontSize="12" />
+            <Label Text="Type how many you want. What is already in your cart counts towards the stock." Style="{StaticResource StoreSubtitle}" FontSize="12" />
             <Label Text="{Binding Feedback}" Style="{StaticResource StoreFeedback}" />
         </VerticalStackLayout></Border>
     </VerticalStackLayout></ScrollView>
