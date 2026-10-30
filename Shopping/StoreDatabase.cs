@@ -79,7 +79,7 @@ public class StoreDatabase
             {
                 if (item.ProductId == product.ProductId)
                 {
-                    lines.Add(new CartLine { CartItemId = item.CartItemId, ProductId = product.ProductId, Name = product.Name, ImageData = product.ImageData, Quantity = item.Quantity, UnitPrice = product.Price });
+                    lines.Add(new CartLine { CartItemId = item.CartItemId, ProductId = product.ProductId, Name = product.Name, Quantity = item.Quantity, UnitPrice = product.Price });
                     break;
                 }
             }

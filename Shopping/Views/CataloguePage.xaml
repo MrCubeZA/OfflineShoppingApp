@@ -25,7 +25,7 @@
                             <Button Text="Shop now" Command="{Binding OpenFeaturedCommand}" Style="{StaticResource StorePrimaryButton}" HorizontalOptions="Start" />
                         </VerticalStackLayout>
                         <Border Grid.Column="1" BackgroundColor="#F6F3FA" StrokeThickness="0" StrokeShape="RoundRectangle 17" Padding="9" VerticalOptions="Center" HeightRequest="165">
-                            <Image Source="{Binding FeaturedProduct.ImageSource}" Aspect="AspectFit" SemanticProperties.Description="Featured product" />
+                            <Image Source="{Binding FeaturedProduct.ImageFile}" Aspect="AspectFit" SemanticProperties.Description="Featured product" />
                         </Border>
                     </Grid>
                 </Border>
@@ -38,7 +38,7 @@
         <CollectionView.ItemTemplate><DataTemplate>
             <Border Style="{StaticResource StoreCard}" Padding="10">
                 <VerticalStackLayout Spacing="8">
-                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="8" HeightRequest="135"><Image Source="{Binding ImageSource}" Aspect="AspectFit" /></Border>
+                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="8" HeightRequest="135"><Image Source="{Binding ImageFile}" Aspect="AspectFit" /></Border>
                     <Label Text="{Binding CategoryName}" FontSize="10" TextColor="#B79AFF" MaxLines="1" LineBreakMode="TailTruncation" />
                     <Label Text="{Binding Name}" TextColor="#F5F3FF" FontSize="14" FontAttributes="Bold" MaxLines="2" HeightRequest="39" LineBreakMode="TailTruncation" />
                     <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="18" FontAttributes="Bold" TextColor="White" />

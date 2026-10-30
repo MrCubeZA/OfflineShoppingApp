@@ -22,10 +22,9 @@ public class Product
     public string Description { get; set; } = string.Empty;
     public decimal Price { get; set; }
     public int Stock { get; set; }
-    public byte[] ImageData { get; set; } = Array.Empty<byte>();
     public bool IsFeatured { get; set; }
-    private ImageSource? imageSource;
-    [Ignore] public ImageSource ImageSource => imageSource ??= ImageSource.FromStream(() => new MemoryStream(ImageData));
+    // Photo is an app image file (Resources/Images/product1.jpg etc.), not stored in the database.
+    [Ignore] public string ImageFile => $"product{ProductId}.jpg";
     [Ignore] public string CategoryName { get; set; } = string.Empty;
 }
 [Table("CartItem")]
@@ -60,8 +59,6 @@ public class CartLine
     public string Name { get; set; } = string.Empty;
     public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }
-    public byte[] ImageData { get; set; } = Array.Empty<byte>();
-    private ImageSource? imageSource;
-    public ImageSource ImageSource => imageSource ??= ImageSource.FromStream(() => new MemoryStream(ImageData));
+    public string ImageFile => $"product{ProductId}.jpg";
     public decimal LineTotal => Quantity * UnitPrice;
 }

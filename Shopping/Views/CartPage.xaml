@@ -6,7 +6,7 @@
             <CollectionView.ItemsLayout><LinearItemsLayout Orientation="Vertical" ItemSpacing="12" /></CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate><DataTemplate><Border Style="{StaticResource StoreCard}" Padding="12">
                 <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="10">
-                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="7" HeightRequest="85"><Image Source="{Binding ImageSource}" Aspect="AspectFit" /></Border>
+                    <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="7" HeightRequest="85"><Image Source="{Binding ImageFile}" Aspect="AspectFit" /></Border>
                     <VerticalStackLayout Grid.Column="1" Spacing="5">
                         <Label Text="{Binding Name}" Style="{StaticResource StoreTitle}" FontSize="15" MaxLines="2" />
                         <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" Style="{StaticResource StoreSubtitle}" FontSize="12" />

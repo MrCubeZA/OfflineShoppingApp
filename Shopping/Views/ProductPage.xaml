@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="OfflineShoppingApp.Shopping.Views.ProductPage" Title="Product details" Style="{StaticResource StorePage}">
     <ScrollView><VerticalStackLayout Padding="18,12,18,24" Spacing="20">
-        <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="24" HeightRequest="270"><Image Source="{Binding Product.ImageSource}" Aspect="AspectFit" /></Border>
+        <Border BackgroundColor="#F4F2F7" StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="24" HeightRequest="270"><Image Source="{Binding Product.ImageFile}" Aspect="AspectFit" /></Border>
         <VerticalStackLayout Spacing="9">
             <Label Text="{Binding Product.CategoryName}" TextColor="#B79AFF" FontSize="12" FontAttributes="Bold" />
             <Label Text="{Binding Product.Name}" Style="{StaticResource StoreHeading}" />
